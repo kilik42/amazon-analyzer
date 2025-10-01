@@ -34,6 +34,10 @@ def main():
             st.error("Please select a valid domain.")
             return
 
+    if st.button("Scrape Product") and asin:
+        with st.spinner("Scraping in progress..."):
+            st.info("Scraping functionality is currently disabled.")
+            
         # result = scrape_website(asin, geo, domain)
         # st.success("Scraping completed!")
         # st.json(result)
