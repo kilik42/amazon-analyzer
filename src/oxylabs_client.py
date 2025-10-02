@@ -29,3 +29,20 @@ def normalize_product(content):
     category_path = []
     if content.get("category_path"):
         category_path = [cat.strip() for cat in content["category_path"] if cat]
+    return {
+
+            "asin": content.get("asin"),
+    "url": content.get("url"),
+    "brand": content.get("brand"),
+    "price": content.get("price"),
+    "stock": content.get("stock"),
+    "title": content.get("title"),
+    "rating": content.get("rating"),
+    "images": content.get("images", []),
+    "categories": content.get("category", []) or content.get("categories", []),
+    "category_path": category_path,
+    "currency": content.get("currency"),
+    "buybox": content.get("buybox", []),
+    "product_overview": content.get("product_overview", []),
+
+    }
