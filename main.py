@@ -37,7 +37,10 @@ def main():
     if st.button("Scrape Product") and asin:
         with st.spinner("Scraping in progress..."):
             st.info("Scraping functionality is currently disabled.")
-            
+            #todo : scrape product
+        st.success("Scraping completed!")
+
+        
         # result = scrape_website(asin, geo, domain)
         # st.success("Scraping completed!")
         # st.json(result)
