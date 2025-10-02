@@ -23,7 +23,15 @@ class Database:
     
     def get_all_products(self):
         return self.products.all()
-    
-    def search_products(self, field, value):
+
+    def search_products(self, search_criteria):
         Product = Query()
-        return self.products.search(Product[field] == value)
+        query = None
+        for key, value in search_criteria.items():
+            if query is None:
+                # Initialize the query
+                # where key is the field name and value is the value to search for
+                query = (Product[key] == value)
+            else:
+                query &= (Product[key] == value)
+        return self.products.search(query) if query else []
